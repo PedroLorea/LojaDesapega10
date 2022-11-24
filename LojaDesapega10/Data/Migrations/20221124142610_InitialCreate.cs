@@ -16,7 +16,7 @@ namespace LojaDesapega10.Data.Migrations
                Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
                Data = table.Column<DateTime>(type: "datetime2", nullable: false),
                Descricao = table.Column<string>(type: "nvarchar(max)", nullable: true),
-               Preco = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+               Preco = table.Column<decimal>(type: "int", nullable: false)
            },
            constraints: table =>
            {

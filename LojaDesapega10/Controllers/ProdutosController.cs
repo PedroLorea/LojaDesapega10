@@ -19,11 +19,23 @@ namespace LojaDesapega10.Controllers
             _context = context;
         }
 
-        // GET: ProdutosCerto
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Produto.ToListAsync());
+            var produtos = from m in _context.Produto
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                produtos = produtos.Where(s => s.Nome.Contains(searchString));
+            }
+
+            return View(await produtos.ToListAsync());
         }
+        //// GET: ProdutosCerto
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View(await _context.Produto.ToListAsync());
+        //}
 
         // GET: ProdutosCerto/Details/5
         public async Task<IActionResult> Details(int? id)
