@@ -19,17 +19,34 @@ namespace LojaDesapega10.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string searchString)
+        // GET: Movies
+        public async Task<IActionResult> Index(string produtoCategoria, string searchString)
         {
+            // Use LINQ to get list of genres.
+            IQueryable<string> categoriaQuery = from m in _context.Produto
+                                            orderby m.Categoria
+                                            select m.Categoria;
+
             var produtos = from m in _context.Produto
                          select m;
 
-            if (!String.IsNullOrEmpty(searchString))
+            if (!string.IsNullOrEmpty(searchString))
             {
                 produtos = produtos.Where(s => s.Nome.Contains(searchString));
             }
 
-            return View(await produtos.ToListAsync());
+            if (!string.IsNullOrEmpty(produtoCategoria))
+            {
+                produtos = produtos.Where(x => x.Categoria == produtoCategoria);
+            }
+
+            var produtoCategoriaVM = new ProdutoCategoriaViewModel
+            {
+                Categoria = new SelectList(await categoriaQuery.Distinct().ToListAsync()),
+                Produtos = await produtos.ToListAsync()
+            };
+
+            return View(produtoCategoriaVM);
         }
         //// GET: ProdutosCerto
         //public async Task<IActionResult> Index()
