@@ -26,6 +26,7 @@ namespace LojaDesapega10.Data
                         Nome = "Bicicleta",
                         Data = DateTime.Parse("2022-2-05"),
                         Descricao = "BMX - Ano 2020 - Estado de Zero",
+                        Categoria = "Transporte",
                         Preco = 1000
                     },
 
@@ -34,6 +35,7 @@ namespace LojaDesapega10.Data
                         Nome = "Mesa de Jantar 8 Lugares",
                         Data = DateTime.Parse("2021-5-10"),
                         Descricao = "Mesa de Jantar de 8 Lugares, semi nova, 3 anos de uso",
+                        Categoria = "Móveis",
                         Preco = 2000
                     },
 
@@ -42,6 +44,7 @@ namespace LojaDesapega10.Data
                         Nome = "Notebook Gamer ASUS",
                         Data = DateTime.Parse("2022-8-22"),
                         Descricao = "Placa gamer GEFORECE GTX 1050Ti - Ram de 8GB - Processador Intel i5",
+                        Categoria = "Eletrônicos",
                         Preco = 3900
                     },
 
@@ -50,6 +53,7 @@ namespace LojaDesapega10.Data
                         Nome = "Televisão LG 42 polegadas",
                         Data = DateTime.Parse("2022-8-22"),
                         Descricao = "Televisão com 2 anos de uso",
+                        Categoria = "Eletrônicos",
                         Preco = 1500
                     }
                 );

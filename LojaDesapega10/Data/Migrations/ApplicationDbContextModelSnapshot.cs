@@ -26,6 +26,9 @@ namespace LojaDesapega10.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Categoria")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime2");
 

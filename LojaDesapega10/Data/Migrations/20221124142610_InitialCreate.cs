@@ -14,6 +14,7 @@ namespace LojaDesapega10.Data.Migrations
                Id = table.Column<int>(type: "int", nullable: false)
                    .Annotation("SqlServer:Identity", "1, 1"),
                Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
+               Categoria = table.Column<String>(type: "nvarchar(max)", nullable: true),
                Data = table.Column<DateTime>(type: "datetime2", nullable: false),
                Descricao = table.Column<string>(type: "nvarchar(max)", nullable: true),
                Preco = table.Column<decimal>(type: "int", nullable: false)
@@ -28,7 +29,7 @@ namespace LojaDesapega10.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Movie");
+                name: "Produto");
 
         }
     }
