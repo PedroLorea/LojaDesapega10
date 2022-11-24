@@ -8,20 +8,21 @@ namespace LojaDesapega10.Controllers
 {
     public class ProdutosController : Controller
     {
-        // 
-        // GET: /HelloWorld/
-
-        public string Index()
+       
+        public IActionResult Index()
         {
-            return "This is my default action...";
+            return View();
         }
 
         // 
         // GET: /HelloWorld/Welcome/ 
 
-        public string Welcome()
+        public IActionResult Welcome(string name = "Usuário", int numTimes = 1)
         {
-            return "This is the Welcome action method...";
+            ViewData["Message"] = "Bem-vindo " + name;
+            ViewData["NumTimes"] = numTimes;
+
+            return View();
         }
     }
 }
